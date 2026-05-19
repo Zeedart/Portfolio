@@ -1,11 +1,8 @@
 'use client';
-import GlassSurface from '@/components/GlassSurface';
-import { FloatingDock } from '@/components/ui/floating-dock';
 import { InfoIcon } from "@/components/ui/info-icon";
 import { RocketIcon } from "@/components/ui/rocket-icon";
 import { BrainIcon } from "@/components/ui/brain-icon";
 import { SendIcon } from "@/components/ui/send-icon";
-import { IconNewSection } from "@tabler/icons-react";
 import Dock from '@/components/Dock';
 
 

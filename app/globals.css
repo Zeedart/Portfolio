@@ -104,9 +104,12 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: clamp(3rem, 8vw, 6rem); }
 h2 { font-size: clamp(2rem, 4vw, 3rem); }
 h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
+h4 { font-size: clamp(1rem, 1.5vw, 1.25rem); }
+h5 { font-size: clamp(0.875rem, 1.2vw, 1rem); }
+h6 { font-size: clamp(0.75rem, 1vw, 0.875rem); }
+
 
 p {
-  color: var(--text-muted);
   line-height: 1.8;
   font-weight: 300;
 }
@@ -158,4 +161,10 @@ a {
     --section-px: 24px;
     --section-py: 70px;
   }
+}
+
+/* ─── UTILITY ─────────────────────────────────────────────── */
+
+@utility animate-blink {
+  animation: blink 1.5s ease-in-out infinite;
 }
