@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic'
 import SpotlightCard from '@/components/SpotlightCard';
 import { Infinity } from 'lucide-react';
 import { MessageCircle } from 'lucide-react';
+import LogoLoopComp from '@/components/comps/LogoLoopComp';
 const DotField = dynamic(() => import('@/components/DotField'), { ssr: false })
 
 
@@ -89,6 +90,7 @@ export default function Home() {
             <h2>Who I am</h2>
           </div>
           <div className='grid grid-cols-1 w-full items-center'>
+            
             <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>I am a <span className='text-white font-semibold'>frontend developer</span> who graduated in 2025 and immediately got to work, building applications that solve real problems.</p>
 
             <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>My biggest project, <span className='text-white font-semibold'>Taskora</span> is a team task manager that people can use together it has real-time features, Kanban boards and workspace management. I built it with Next.js and Supabase.</p>
@@ -123,6 +125,7 @@ export default function Home() {
           </SpotlightCard>
         </div>
       </div>
+      <LogoLoopComp />
     </>
   );
 }
