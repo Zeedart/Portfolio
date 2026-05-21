@@ -6,6 +6,8 @@ import BorderGlow from '@/components/BorderGlow';
 import image from "@/public/Test.jpg"
 import Image from 'next/image';
 import dynamic from 'next/dynamic'
+import SpotlightCard from '@/components/SpotlightCard';
+import { Infinity } from 'lucide-react';
 import { MessageCircle } from 'lucide-react';
 const DotField = dynamic(() => import('@/components/DotField'), { ssr: false })
 
@@ -36,7 +38,7 @@ export default function Home() {
         </div>
         <div className='relative z-10 flex items-center h-full w-full justify-around'>
           <div className='grid gap-7 w-[49%]'>
-            <div className='flex justify-center gap-3 bg-[var(--accent-glow)] rounded-xl border-[var(--accent)] border w-50 items-center p-4'>
+            <div className='flex justify-center gap-3 bg-[var(--accent-glow)] rounded-xl border-[var(--accent)] border w-50 items-center'>
               <BlinkingDot width={10} height={10} />
               <p className='text-[var(--accent)]'>OPEN TO WORK</p>
             </div>
@@ -77,8 +79,49 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="h-[200vh] flex items-start justify-center pt-40">
-        <p className="text-white opacity-30 text-sm">scroll test</p>
+      <div className='h-[80vh] w-screen justify-around flex items-center'>
+        <div className='w-[50%] h-[65%] grid'>
+          <div className='flex gap-5 flex-col'>
+            <div className='flex gap-4 items-center'>
+              <span className='text-[var(--accent)] text-[1rem] font-semibold'>ABOUT ME</span>
+              <div className='h-[.1px] w-25 bg-[var(--accent)]'></div>
+            </div>
+            <h2>Who I am</h2>
+          </div>
+          <div className='grid grid-cols-1 w-full items-center'>
+            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>I am a <span className='text-white font-semibold'>frontend developer</span> who graduated in 2025 and immediately got to work, building applications that solve real problems.</p>
+
+            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>My biggest project, <span className='text-white font-semibold'>Taskora</span> is a team task manager that people can use together it has real-time features, Kanban boards and workspace management. I built it with Next.js and Supabase.</p>
+
+            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>I'm driven by a love for <span className='text-white font-semibold'>clean design, great UX, and writing code that actually works.</span> I'm looking for my first professional role where I can grow fast and contribute from day one.</p>
+          </div>
+        </div>
+        <div className='grid grid-cols-2 gap-5 h-[70%] w-150'>
+          <SpotlightCard className='h-55 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] justify-center flex items-center' spotlightColor="rgba(143, 138, 255, .5)">
+            <div className='flex w-full flex-col items-center gap-5 justify-start'>
+              <h2 className='text-[var(--accent)]!'>3+</h2>
+              <p className='text-[1rem] font-bold text-[var(--text-muted)]'>Full stack projects deployed</p>
+            </div>
+          </SpotlightCard>
+          <SpotlightCard className='h-55 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] justify-center flex items-center' spotlightColor="rgba(143, 138, 255, .5)">
+            <div className='flex w-full flex-col items-center gap-5 justify-start'>
+              <h2 className='text-[var(--accent)]!'>8+</h2>
+              <p className='text-[1rem] font-bold text-[var(--text-muted)]'>Months of building projects</p>
+            </div>
+          </SpotlightCard>
+          <SpotlightCard className='h-55 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] justify-center flex items-center' spotlightColor="rgba(143, 138, 255, .5)">
+            <div className='flex w-full flex-col items-center gap-5 justify-start'>
+              <h2 className='text-[var(--accent)]!'>100%</h2>
+              <p className='text-[1rem] font-bold text-[var(--text-muted)]'>Self-Motivated</p>
+            </div>
+          </SpotlightCard>
+          <SpotlightCard className='h-55 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] justify-center flex items-center' spotlightColor="rgba(143, 138, 255, .5)">
+            <div className='flex w-full flex-col items-center gap-2 justify-start'>
+              <h2 className='text-[var(--accent)]!'><Infinity height={70} width={70}/></h2>
+              <p className='text-[1rem] font-bold text-[var(--text-muted)]'>Drive to keep learning</p>
+            </div>
+          </SpotlightCard>
+        </div>
       </div>
     </>
   );
