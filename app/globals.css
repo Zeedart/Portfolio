@@ -166,3 +166,11 @@ a {
 @utility animate-blink {
   animation: blink 1.5s ease-in-out infinite;
 }
+
+@utility font-syne {
+  font-family: var(--font-syne);
+}
+
+@utility font-dm-sans {
+  font-family: var(--font-dm-sans);
+}

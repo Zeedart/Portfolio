@@ -10,10 +10,44 @@ import SpotlightCard from '@/components/SpotlightCard';
 import { Infinity } from 'lucide-react';
 import { MessageCircle } from 'lucide-react';
 import LogoLoopComp from '@/components/comps/LogoLoopComp';
+import Card from '@/components/comps/Card';
+import TASKORA from '@/public/Taskora.png'
+import Portfolio from '@/public/Portfolio.png';
+import SmartStudyDashboard from "@/public/iFOCUSFLOW.png";
 const DotField = dynamic(() => import('@/components/DotField'), { ssr: false })
 
 
 export default function Home() {
+
+  const Projects = [
+    {
+      id: 1,
+      image: Portfolio,
+      ProjectName: "Portfolio",
+      ProjectDescription: "A design-forward personal portfolio with dark/light mode, smooth animations, and a focus on visual polish and performance.",
+      LiveUrl: "https://portfolio-ten.vercel.app/",
+      githubUrl: "https://github.com/Zeedart/Portfolio",
+      TechStack: ["Next.js", "Tailwind", "TypeScript"]
+    },
+    {
+      id: 2,
+      image: TASKORA,
+      ProjectName: "Taskora",
+      ProjectDescription: "Taskora helps teams organize their work into projects and tasks — with a clean kanban board, real-time activity logs, and workspace-based collaboration.",
+      LiveUrl: "https://team-task-manager-steel-seven.vercel.app/",
+      githubUrl: "https://github.com/Zeedart/Team-Task-Manager",
+      TechStack: ["Next.js", "Tailwind", "TypeScript"]
+    },
+    {
+      id: 3,
+      image: SmartStudyDashboard,
+      ProjectName: "FocusFlow",
+      ProjectDescription: "A personalized, interactive dashboard designed to help students organize their academic life, manage tasks, track progress, and maintain a balanced study schedule.",
+      LiveUrl: "https://i-focus-flow.netlify.app/",
+      githubUrl: "https://github.com/Zeedart/Smart-Study-Dashboard",
+      TechStack: ["React", "VanilaJS", "Bootstrap"]
+    }
+  ]
 
 
   return (
@@ -125,7 +159,25 @@ export default function Home() {
           </SpotlightCard>
         </div>
       </div>
-      <LogoLoopComp />
+
+
+
+      <div className='bg-[var(--bg-card)] w-[96%] my-10  mx-auto h-[.9px]' />
+
+
+
+      <div className='h-[80vh] w-screen p-9'>
+        <div className='flex gap-4 items-center mb-5'>
+              <span className='text-[var(--accent)] text-[1rem] font-semibold'>WORK</span>
+              <div className='h-[.1px] w-25 bg-[var(--accent)]'></div>
+        </div>
+        <h2>Projects I've built</h2>
+        <div className='grid grid-cols-3 w-full gap-5 mt-20'>
+          {Projects.map(project => (
+            <Card key={project.id} image={project.image} ProjectName={project.ProjectName} ProjectDescription={project.ProjectDescription} LiveUrl={project.LiveUrl} githubUrl={project.githubUrl} TechStack={project.TechStack} />
+          ))}
+        </div>
+      </div>
     </>
   );
 }
