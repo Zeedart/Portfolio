@@ -10,10 +10,14 @@ import SpotlightCard from '@/components/SpotlightCard';
 import { Infinity } from 'lucide-react';
 import { MessageCircle } from 'lucide-react';
 import LogoLoopComp from '@/components/comps/LogoLoopComp';
+import Footer from '@/components/comps/Footer';
 import Card from '@/components/comps/Card';
 import TASKORA from '@/public/Taskora.png'
+import StackIcon from 'tech-stack-icons';
 import Portfolio from '@/public/Portfolio.png';
 import SmartStudyDashboard from "@/public/iFOCUSFLOW.png";
+import {MailIcon} from '@/components/ui/mail-icon';
+import { GithubIcon } from '@/components/ui/github-icon';
 const DotField = dynamic(() => import('@/components/DotField'), { ssr: false })
 
 
@@ -124,7 +128,7 @@ export default function Home() {
             <h2>Who I am</h2>
           </div>
           <div className='grid grid-cols-1 w-full items-center'>
-            
+
             <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>I am a <span className='text-white font-semibold'>frontend developer</span> who graduated in 2025 and immediately got to work, building applications that solve real problems.</p>
 
             <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>My biggest project, <span className='text-white font-semibold'>Taskora</span> is a team task manager that people can use together it has real-time features, Kanban boards and workspace management. I built it with Next.js and Supabase.</p>
@@ -153,7 +157,7 @@ export default function Home() {
           </SpotlightCard>
           <SpotlightCard className='h-55 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] justify-center flex items-center' spotlightColor="rgba(143, 138, 255, .5)">
             <div className='flex w-full flex-col items-center gap-2 justify-start'>
-              <h2 className='text-[var(--accent)]!'><Infinity height={70} width={70}/></h2>
+              <h2 className='text-[var(--accent)]!'><Infinity height={70} width={70} /></h2>
               <p className='text-[1rem] font-bold text-[var(--text-muted)]'>Drive to keep learning</p>
             </div>
           </SpotlightCard>
@@ -166,10 +170,10 @@ export default function Home() {
 
 
 
-      <div className='h-[80vh] w-screen p-9'>
+      <div className='min-h-[80vh] w-full p-9 overflow-visible'>
         <div className='flex gap-4 items-center mb-5'>
-              <span className='text-[var(--accent)] text-[1rem] font-semibold'>WORK</span>
-              <div className='h-[.1px] w-25 bg-[var(--accent)]'></div>
+          <span className='text-[var(--accent)] text-[1rem] font-semibold'>WORK</span>
+          <div className='h-[.1px] w-25 bg-[var(--accent)]'></div>
         </div>
         <h2>Projects I've built</h2>
         <div className='grid grid-cols-3 w-full gap-5 mt-20'>
@@ -177,7 +181,23 @@ export default function Home() {
             <Card key={project.id} image={project.image} ProjectName={project.ProjectName} ProjectDescription={project.ProjectDescription} LiveUrl={project.LiveUrl} githubUrl={project.githubUrl} TechStack={project.TechStack} />
           ))}
         </div>
+        <button className="w-[80%] mx-auto block flex items-center justify-center gap-2 mt-9 text-[var(--accent)] transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] hover:scale-105">
+          More projects on <StackIcon name="github" className="ml-1 w-6 h-6 pt-1" variant='dark' />
+        </button>
       </div>
+
+      <div className='bg-[var(--bg-card)] w-[96%] my-10  mx-auto h-[.9px]' />
+
+      <div className='w-full p-9 overflow-visible'>
+        <div className='flex gap-4 items-center mb-5'>
+          <span className='text-[var(--accent)] text-[1rem] font-semibold'>STACK</span>
+          <div className='h-[.1px] w-25 bg-[var(--accent)]'></div>
+        </div>
+        <h2>What I work with</h2>
+        <LogoLoopComp />
+      </div>
+
+      <Footer />
     </>
   );
 }
