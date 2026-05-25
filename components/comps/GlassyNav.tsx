@@ -43,7 +43,7 @@ export default function GlassyNav() {
 
 
   return (
-    <div className="fixed flex justify-center top-4 left-0 right-0 z-50">
+    <div className="hidden md:flex fixed justify-center top-4 left-0 right-0 z-50">
       <GlassSurface
         width={800}
         height={50}
@@ -60,7 +60,7 @@ export default function GlassyNav() {
         blur={11}
         opacity={0.81}
         mixBlendMode="screen"
-        className='border-x-2 border-[var(--accent)] '
+        className='border-x-2 border-[var(--accent)]'
       >
         <div className="grid grid-cols-3 items-center w-full px-6">
           <h4 className='font-extrabold'>YZ<span className='text-[var(--accent)]'>.</span></h4>

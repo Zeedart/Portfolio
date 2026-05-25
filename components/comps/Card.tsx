@@ -10,7 +10,7 @@ export default function Card({image: image, ProjectName: ProjectName, ProjectDes
     image: StaticImageData, ProjectName: string, ProjectDescription: string, LiveUrl: string, githubUrl: string, TechStack: string[]
 }) {
     return (
-        <div className="bg-[var(--bg-surface)] h-[500px] border border-transparent hover:border-[var(--border-hover)] hover:bg-[var(--bg-card)] hover:shadow-[0_0_40px_rgba(112,105,255,0.4)] transition duration-300 pb-13 w-[450px] rounded-2xl shadow-card">
+        <div className="bg-[var(--bg-surface)] h-[500px] border border-transparent hover:border-[var(--border-hover)] hover:bg-[var(--bg-card)] hover:shadow-[0_0_40px_rgba(112,105,255,0.4)] transition duration-300 pb-13 w-[90%] rounded-2xl shadow-card">
             <div className="relative w-full h-[45%] rounded-t-2xl overflow-hidden">
                 <Image src={image} alt="card" fill sizes="100%" className="object-cover" />
             </div>

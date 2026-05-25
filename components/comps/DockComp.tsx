@@ -16,7 +16,7 @@ const items = [
     { icon: <SendIcon size={18} />, label: 'Settings', onClick: () => alert('Settings!'), className: 'bg-[var(--bg-card)]' },
 ];
   return (
-    <div className="fixed bottom-0 left-0 right-0 max-h-[65px] flex justify-center pb-4 md:hidden">
+    <div className="fixed bottom-0 z-50 left-0 right-0 max-h-[65px] w-screen flex justify-center pb-4 md:hidden">
     
     <div 
       className="w-[85%] rounded-xl backdrop-blur-sm"
