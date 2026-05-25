@@ -6,6 +6,8 @@
   --bg:           #080c14;
   --bg-surface:   #0f1623;
   --bg-card:      #151e30;
+  --bg-transparent: rgba(0, 0, 0, 0.5);
+  
 
   /* Text */
   --text:         #f0f0f5;
@@ -48,24 +50,25 @@
 
 /* ─── LIGHT THEME ────────────────────────────────────────── */
 [data-theme="light"] {
-  --bg:           #f5f4f0;
+  --bg:           #f0f2f8;
   --bg-surface:   #ffffff;
-  --bg-card:      #ffffff;
+  --bg-card:      #f7f8fc;
+  --bg-transparent: rgba(240, 242, 248, 0.7);
 
-  --text:         #111118;
-  --text-muted:   #888899;
+  --text:         #0d0f1a;
+  --text-muted:   #5a5c72;
 
-  --border:       rgba(0, 0, 0, 0.08);
-  --border-hover: rgba(112, 105, 255, 0.4);
+  --border:       rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(91, 84, 255, 0.5);
 
-  --accent:       #5b54ff;
-  --accent-hover: #7069ff;
-  --accent-glow:  rgba(91, 84, 255, 0.15);
-  --accent2:      #ff3358;
-  --accent3:      #00c9a3;
+  --accent:       #4e46ff;
+  --accent-hover: #6b63ff;
+  --accent-glow:  rgba(78, 70, 255, 0.2);
+  --accent2:      #ff2d55;
+  --accent3:      #00b894;
 
-  --shadow-accent: 0 0 40px rgba(91, 84, 255, 0.15);
-  --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-accent: 0 0 40px rgba(78, 70, 255, 0.2);
+  --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 /* ─── RESET & BASE ───────────────────────────────────────── */
@@ -78,6 +81,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+
 
 body {
   font-family: var(--font-body);
@@ -113,7 +118,6 @@ h6 { font-size: clamp(0.75rem, 1vw, 0.875rem); }
   letter-spacing: -0.03em;
   color: var(--text);
 }
-
 
 p {
   line-height: 1.8;

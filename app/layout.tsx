@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeContextProvider } from "@/context/Theme";
 import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -27,7 +28,9 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-green-100 flex flex-col">{children}</body>
+      <ThemeContextProvider>
+        <body className="min-h-full bg-green-100 flex flex-col">{children}</body>
+      </ThemeContextProvider>
     </html>
   );
 }

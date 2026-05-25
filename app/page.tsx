@@ -8,20 +8,21 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic'
 import SpotlightCard from '@/components/SpotlightCard';
 import { Infinity } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
 import LogoLoopComp from '@/components/comps/LogoLoopComp';
 import Footer from '@/components/comps/Footer';
 import Card from '@/components/comps/Card';
 import TASKORA from '@/public/Taskora.png'
 import StackIcon from 'tech-stack-icons';
+import { useTheme } from '@/context/Theme';
 import Portfolio from '@/public/Portfolio.png';
 import SmartStudyDashboard from "@/public/iFOCUSFLOW.png";
-import {MailIcon} from '@/components/ui/mail-icon';
-import { GithubIcon } from '@/components/ui/github-icon';
 const DotField = dynamic(() => import('@/components/DotField'), { ssr: false })
 
 
 export default function Home() {
+
 
   const Projects = [
     {
@@ -53,6 +54,8 @@ export default function Home() {
     }
   ]
 
+  const { theme, setTheme } = useTheme();
+
 
   return (
     <>
@@ -61,7 +64,7 @@ export default function Home() {
       <div className='w-screen h-screen relative'>
         <div className='absolute inset-0'>
           <DotField
-            dotRadius={1.5}
+            dotRadius={2}
             dotSpacing={14}
             bulgeStrength={67}
             glowRadius={160}
@@ -72,17 +75,17 @@ export default function Home() {
             bulgeOnly
             gradientFrom="#A855F7"
             gradientTo="#B497CF"
-            glowColor="#120F17"
+            glowColor="var(--accent-glow)"
           />
         </div>
-        <div className='relative z-10 flex items-center h-full w-full justify-around'>
+        <div id='home' className='relative z-10 flex items-center h-full w-full justify-around'>
           <div className='grid gap-7 w-[49%]'>
             <div className='flex justify-center gap-3 bg-[var(--accent-glow)] rounded-xl border-[var(--accent)] border w-50 items-center'>
               <BlinkingDot width={10} height={10} />
               <p className='text-[var(--accent)]'>OPEN TO WORK</p>
             </div>
-            <h1 className='overflow-hidden text-white'>Yazeed <br /> <span className='text-[var(--accent)]'>Alkalmi.</span></h1>
-            <p className='text-white text-[1.15rem] w-[70%]'>Frontend developer building fast, beautiful, and purposeful web experiences with React, Next.js, and TypeScript.</p>
+            <h1 className='overflow-hidden'>Yazeed <br /> <span className='text-[var(--accent)]'>Alkalmi.</span></h1>
+            <p className='text-[var(--text)] text-[1.15rem] w-[70%]'>Frontend developer building fast, beautiful, and purposeful web experiences with React, Next.js, and TypeScript.</p>
             <div className='w-[76%] flex flex-wrap gap-6'>
               <BorderGlow
                 edgeSensitivity={0}
@@ -97,7 +100,7 @@ export default function Home() {
                 className='w-[30%] transition-transform duration-300 cursor-pointer hover:-translate-y-2 h-[4rem] flex justify-center items-center'
               >
                 <div className='flex justify-center items-center'>
-                  <button className='cursor-pointer'>View my work →</button>
+                  <button className='cursor-pointer text-[var(--text)]'>View my work →</button>
                 </div>
               </BorderGlow>
               <div className='cursor-pointer flex w-[30%] rounded-lg h-[100%] bg-[var(--bg-surface)] 
@@ -105,7 +108,7 @@ export default function Home() {
   hover:border-[var(--accent-hover)] 
   transition-all duration-300 ease-in-out
   justify-center items-center hover:-translate-y-2'>
-                <button className='flex gap-3 cursor-pointer'>Get in touch <MessageCircle height={20} width={20} /></button>
+                <button className='flex gap-3 text-[var(--text)] cursor-pointer'>Get in touch <MessageCircle height={20} width={20} /></button>
               </div>
             </div>
             <div className='flex gap-4 items-center'>
@@ -118,7 +121,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='h-[80vh] w-screen justify-around flex items-center'>
+      <div id="about" className='h-[80vh] w-screen justify-around flex items-center'>
         <div className='w-[50%] h-[65%] grid'>
           <div className='flex gap-5 flex-col'>
             <div className='flex gap-4 items-center'>
@@ -129,11 +132,11 @@ export default function Home() {
           </div>
           <div className='grid grid-cols-1 w-full items-center'>
 
-            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>I am a <span className='text-white font-semibold'>frontend developer</span> who graduated in 2025 and immediately got to work, building applications that solve real problems.</p>
+            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>I am a <span className='text-[var(--text)] font-semibold'>frontend developer</span> who graduated in 2025 and immediately got to work, building applications that solve real problems.</p>
 
-            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>My biggest project, <span className='text-white font-semibold'>Taskora</span> is a team task manager that people can use together it has real-time features, Kanban boards and workspace management. I built it with Next.js and Supabase.</p>
+            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>My biggest project, <span className='text-[var(--text)] font-semibold'>Taskora</span> is a team task manager that people can use together it has real-time features, Kanban boards and workspace management. I built it with Next.js and Supabase.</p>
 
-            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>I'm driven by a love for <span className='text-white font-semibold'>clean design, great UX, and writing code that actually works.</span> I'm looking for my first professional role where I can grow fast and contribute from day one.</p>
+            <p className='text-[1.10rem] text-[var(--text-muted)] font-semibold'>I'm driven by a love for <span className='text-[var(--text)] font-semibold'>clean design, great UX, and writing code that actually works.</span> I'm looking for my first professional role where I can grow fast and contribute from day one.</p>
           </div>
         </div>
         <div className='grid grid-cols-2 gap-5 h-[70%] w-150'>
@@ -166,11 +169,11 @@ export default function Home() {
 
 
 
-      <div className='bg-[var(--bg-card)] w-[96%] my-10  mx-auto h-[.9px]' />
+      <div className='bg-[var(--bg-card)] w-[96%] my-15  mx-auto h-[.9px]' />
 
 
 
-      <div className='min-h-[80vh] w-full p-9 overflow-visible'>
+      <div id='projects' className='min-h-[80vh] w-full p-9 overflow-visible'>
         <div className='flex gap-4 items-center mb-5'>
           <span className='text-[var(--accent)] text-[1rem] font-semibold'>WORK</span>
           <div className='h-[.1px] w-25 bg-[var(--accent)]'></div>
@@ -181,14 +184,14 @@ export default function Home() {
             <Card key={project.id} image={project.image} ProjectName={project.ProjectName} ProjectDescription={project.ProjectDescription} LiveUrl={project.LiveUrl} githubUrl={project.githubUrl} TechStack={project.TechStack} />
           ))}
         </div>
-        <button className="w-[80%] mx-auto block flex items-center justify-center gap-2 mt-9 text-[var(--accent)] transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[var(--bg-surface)] hover:bg-[var(--bg-card)] hover:scale-105">
-          More projects on <StackIcon name="github" className="ml-1 w-6 h-6 pt-1" variant='dark' />
+        <button className="w-[80%] mx-auto block flex items-center justify-center gap-2 mt-9 text-[var(--accent)] transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[var(--bg-transparent)] hover:bg-[var(--bg-card)] hover:scale-105">
+          More projects on <StackIcon name="github" className="ml-1 w-6 h-6 pt-1" variant={theme} />
         </button>
       </div>
 
       <div className='bg-[var(--bg-card)] w-[96%] my-10  mx-auto h-[.9px]' />
 
-      <div className='w-full p-9 overflow-visible'>
+      <div className='w-full p-9  overflow-visible'>
         <div className='flex gap-4 items-center mb-5'>
           <span className='text-[var(--accent)] text-[1rem] font-semibold'>STACK</span>
           <div className='h-[.1px] w-25 bg-[var(--accent)]'></div>

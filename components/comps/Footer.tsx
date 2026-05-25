@@ -12,7 +12,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="relative w-full border-t mt-30 border-[var(--border)] bg-[var(--bg)]">
+        <footer id="contact" className="relative w-full h-[80vh] border-t mt-30 border-[var(--border)] bg-[var(--bg)]">
 
             {/* Top glow line */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[1px] bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent" />
@@ -85,7 +85,7 @@ export default function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="text-center pb-6 text-[var(--text-muted)] text-[0.75rem]">
+            <div className="text-center text-[var(--text-muted)] text-[0.75rem]">
                 © {new Date().getFullYear()} Yazeed Alkalmi — Built with Next.js & Tailwind CSS
             </div>
 
