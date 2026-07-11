@@ -191,7 +191,11 @@ export default function Home() {
           ))}
         </div>
         <Link href="https://github.com/Zeedart" target="_blank" className="w-full md:w-[60%] mx-auto font-semibold mt-10 flex items-center justify-center gap-2 text-[var(--accent)] transition duration-300 ease-in-out border border-[var(--border)] p-3 rounded-full bg-[var(--bg-transparent)] hover:bg-[var(--bg-card)] hover:scale-105">
-          More projects on <StackIcon name="github" className="w-5 h-5" variant={theme} />
+          More projects on <StackIcon
+            name="github"
+            className="w-5 h-5"
+            variant={theme === "dark" ? "dark" : theme === "light" ? "light" : "grayscale"}
+          />
         </Link>
       </section>
 
