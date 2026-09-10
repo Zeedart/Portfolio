@@ -1,7 +1,8 @@
 import LogoLoop from '@/components/LogoLoop';
 import {useTheme} from '@/context/Theme';
 import StackIcon from 'tech-stack-icons';
-import type  {Variant}  from 'tech-stack-icons';
+
+type Variant = "light" | "dark" | "grayscale";
 
 
 export default function LogoLoopComp() {
