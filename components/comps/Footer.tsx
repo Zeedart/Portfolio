@@ -62,12 +62,6 @@ export default function Footer() {
                         <GithubIcon size={20} />
                     </Link>
                     <Link
-                        href="#"
-                        className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors duration-200"
-                    >
-                        <LinkedinIcon size={20} />
-                    </Link>
-                    <Link
                         href="mailto:yazeedkuantan@gmail.com"
                         className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors duration-200"
                     >
