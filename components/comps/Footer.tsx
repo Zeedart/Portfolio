@@ -4,6 +4,7 @@ import { GithubIcon } from '../ui/github-icon';
 import { LinkedinIcon } from '../ui/linkedin-icon';
 import { MailIcon } from '../ui/mail-icon';
 import { ArrowUp } from 'lucide-react';
+import { DownloadIcon } from '../ui/download-icon';
 
 export default function Footer() {
 
@@ -30,17 +31,22 @@ export default function Footer() {
                     I&apos;m actively looking for my first frontend role. If you&apos;re hiring or want to collaborate — reach out.
                 </p>
                 <div className='flex justify-center h-10 w-full gap-4 mt-5'>
-            <Link href="mailto:yazeedkuantan@gmail.com" className='bg-[var(--accent)] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(112,105,255,1)] p-6 rounded-md w-fit h-[50px] flex items-center justify-center font-bold'>
-              Send me an email <MailIcon className="ml-2 w-6 h-6" />
-            </Link>
-            <Link target="_blank" href="https://github.com/Zeedart" className='cursor-pointer w-fit rounded-md h-[50px] flex items-center justify-center p-6 font-bold bg-[var(--bg-card)] 
-  border-1 border-transparent 
-  hover:border-[var(--accent-hover)] 
+                    <Link href="mailto:yazeedkuantan@gmail.com" className='bg-[var(--accent)] hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(112,105,255,1)] p-6 rounded-md w-fit h-[50px] flex items-center justify-center font-bold'>
+                        Send me an email <MailIcon className="ml-2 w-6 h-6" />
+                    </Link>
+                    <a
+                        href="/YAZEED_ALKALMI_CV.pdf"
+                        download
+                        className="cursor-pointer w-fit rounded-md h-[50px] flex items-center justify-center p-6 font-bold bg-[var(--bg-card)]
+  border border-transparent
+  hover:border-[var(--accent-hover)]
   transition-all duration-300 ease-in-out
-  justify-center items-center hover:-translate-y-1'>
-              Github <GithubIcon className="ml-2 w-6 h-6" />
-            </Link>
-          </div>
+  hover:-translate-y-1"
+                    >
+                        Download CV
+                        <DownloadIcon className="ml-2 w-6 h-6" />
+                    </a>
+                </div>
             </div>
 
             {/* Divider */}
