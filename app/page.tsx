@@ -17,6 +17,7 @@ import TASKORA from '@/public/Taskora.png'
 import StackIcon from 'tech-stack-icons';
 import { useTheme } from '@/context/Theme';
 import Portfolio from '@/public/Portfolio.png';
+import Kafé from '@/public/Kafé.png';
 import SmartStudyDashboard from "@/public/iFOCUSFLOW.png";
 const DotField = dynamic(() => import('@/components/DotField'), { ssr: false })
 
@@ -26,11 +27,11 @@ export default function Home() {
   const Projects = [
     {
       id: 1,
-      image: Portfolio,
-      ProjectName: "Portfolio",
-      ProjectDescription: "A design-forward personal portfolio with dark/light mode, smooth animations, and a focus on visual polish and performance.",
-      LiveUrl: "https://portfolio-ten.vercel.app/",
-      githubUrl: "https://github.com/Zeedart/Portfolio",
+      image: Kafé,
+      ProjectName: "Kafé",
+      ProjectDescription: "Kafé is a fictional café brand showcasing a polished, modern web presence for a local café or restaurant, featuring its menu, atmosphere, and online reservations.",
+      LiveUrl: "https://kaf-three.vercel.app",
+      githubUrl: "https://github.com/Zeedart/Kaf-",
       TechStack: ["Next.js", "Tailwind", "TypeScript"]
     },
     {
