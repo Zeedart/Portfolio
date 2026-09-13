@@ -6,7 +6,7 @@ import ToggleTheme from '@/components/comps/ToggleTheme';
 import type { NavItem } from '@/data_types/types';
 
 
-const navItems: NavItem[] = [
+export const navItems: NavItem[] = [
   {
     label: "About",
     href: "#about",
