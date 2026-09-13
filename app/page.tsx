@@ -60,8 +60,8 @@ export default function Home() {
       <GlassyNav />
       <DockComp />
 
-      <section id="home" className="relative w-full min-h-screen">
-        {/* Background */}
+      <section id="home" className="relative w-full">
+
         <div className="absolute inset-0">
           <DotField
             dotRadius={2}
@@ -79,13 +79,10 @@ export default function Home() {
           />
         </div>
 
-        {/* Hero content */}
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-start md:justify-around gap-10 px-6 md:px-16 pt-20 md:pt-28 pb-24 md:pb-16 min-h-screen">
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-start md:justify-around gap-10 px-6 md:px-16 pt-20 md:pt-28 pb-24 md:pb-16 min-h-0 lg:min-h-screen">
 
-          {/* Left / Main content */}
           <div className="grid gap-6 w-full md:w-[49%]">
 
-            {/* Availability */}
             <div className="flex justify-center gap-3 bg-[var(--accent-glow)] rounded-xl border border-[var(--accent)] w-fit px-4 py-2 items-center">
               <BlinkingDot width={10} height={10} />
 
@@ -94,7 +91,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Name */}
             <h1 className="overflow-hidden">
               Yazeed <br />
               <span className="text-[var(--accent)]">
@@ -102,16 +98,13 @@ export default function Home() {
               </span>
             </h1>
 
-            {/* Description */}
             <p className="text-[var(--text)] text-[1.05rem] max-w-md">
               Frontend developer building fast, beautiful, and purposeful web
               experiences with React, Next.js, and TypeScript.
             </p>
 
-            {/* CTA buttons */}
             <div className="flex flex-wrap gap-4">
 
-              {/* View work */}
               <BorderGlow
                 edgeSensitivity={0}
                 glowColor="40 80 80"
@@ -133,23 +126,18 @@ export default function Home() {
                 </Link>
               </BorderGlow>
 
-              {/* Contact */}
               <div className="cursor-pointer flex rounded-lg px-6 h-[3.5rem] bg-[var(--bg-surface)] border border-transparent hover:border-[var(--accent-hover)] transition-all duration-300 justify-center items-center hover:-translate-y-2">
                 <Link
                   href="mailto:yazeedkuantan@gmail.com"
                   className="flex gap-3 text-[var(--text)] cursor-pointer"
                 >
                   Get in touch
-                  <MessageCircle
-                    height={20}
-                    width={20}
-                  />
+                  <MessageCircle height={20} width={20} />
                 </Link>
               </div>
 
             </div>
 
-            {/* Scroll indicator */}
             <div className="flex gap-4 items-center">
               <div className="h-[.1px] w-16 bg-[var(--accent)]"></div>
 
@@ -160,7 +148,6 @@ export default function Home() {
 
           </div>
 
-          {/* Profile card - desktop only */}
           <div className="hidden md:flex md:justify-center">
             <ProfileCard
               name="Yazeed Alkalmi"
@@ -179,6 +166,8 @@ export default function Home() {
 
         </div>
       </section>
+
+
       <section id="about" className='w-full px-6 md:px-16 py-20 flex flex-col lg:flex-row gap-12 items-start lg:items-center justify-around'>
 
         <div className='w-full lg:w-[45%] flex flex-col gap-6'>
@@ -253,20 +242,20 @@ export default function Home() {
       <div className='bg-[var(--bg-card)] w-[92%] my-10 mx-auto h-[.9px]' />
 
       <section id="skills" className="w-full px-6 md:px-16 py-10">
-  <div className="flex gap-4 items-center mb-4">
-    <span className="text-[var(--accent)] text-[0.9rem] font-semibold tracking-widest">
-      STACK
-    </span>
+        <div className="flex gap-4 items-center mb-4">
+          <span className="text-[var(--accent)] text-[0.9rem] font-semibold tracking-widest">
+            STACK
+          </span>
 
-    <div className="h-[.1px] w-16 bg-[var(--accent)]"></div>
-  </div>
+          <div className="h-[.1px] w-16 bg-[var(--accent)]"></div>
+        </div>
 
-  <h2 className="mb-8 md:mb-12">
-    What I work with
-  </h2>
+        <h2 className="mb-8 md:mb-12">
+          What I work with
+        </h2>
 
-  <LogoLoopComp />
-</section>
+        <LogoLoopComp />
+      </section>
 
       <Footer />
     </>
