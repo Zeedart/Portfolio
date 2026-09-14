@@ -19,7 +19,43 @@ import { useTheme } from '@/context/Theme';
 import Portfolio from '@/public/Portfolio.png';
 import Kafé from '@/public/Kafé.png';
 import SmartStudyDashboard from "@/public/iFOCUSFLOW.png";
+import StatCard from '@/components/comps/StatCard';
+import {RocketIcon} from '@/components/ui/rocket-icon';
+import  {InfinityIcon}  from "@phosphor-icons/react";
+import {BrowserIcon } from "@phosphor-icons/react";
+import { MonitorSmartphoneIcon } from '@/components/ui/monitor-smartphone-icon';
+
 const DotField = dynamic(() => import('@/components/DotField'), { ssr: false })
+
+type StatCardProps = {
+  value: string;
+  label: string;
+  icon: React.JSX.Element;
+  className?: string;
+};
+
+const stats: StatCardProps[] = [
+  {
+    value: "3+",
+    label: "Full stack projects deployed",
+    icon: <RocketIcon/>,
+  },
+  {
+    value: "React & Next.js",
+    label: "Main frontend frameworks",
+    icon: <CodeXmlIcon />,
+  },
+  {
+    value: "Responsive",
+    label: "Mobile-First Development",
+    icon: <MonitorSmartphoneIcon/>,
+  },
+  {
+    value: "4+",
+    label: "Years in Web Development",
+    icon: <BrowserIcon />,
+  },
+];
 
 
 export default function Home() {
@@ -59,7 +95,6 @@ export default function Home() {
   return (
     <>
       <GlassyNav />
-      <DockComp />
 
       <section id="home" className="relative w-full">
 
@@ -190,31 +225,10 @@ export default function Home() {
           </div>
         </div>
         {/* Stats */}
-        <div className='grid grid-cols-2 gap-4 w-full lg:w-auto'>
-          <SpotlightCard className='h-48 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] flex justify-center items-center' spotlightColor="rgba(143, 138, 255, .5)">
-            <div className='flex flex-col items-center gap-3'>
-              <h2 className='text-[var(--accent)]!'>3+</h2>
-              <p className='text-[0.9rem] font-bold text-[var(--text-muted)] text-center'>Full stack projects deployed</p>
-            </div>
-          </SpotlightCard>
-          <SpotlightCard className='h-48 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] flex justify-center items-center' spotlightColor="rgba(143, 138, 255, .5)">
-            <div className='flex flex-col items-center gap-3'>
-              <h2 className='text-[var(--accent)]!'>8+</h2>
-              <p className='text-[0.9rem] font-bold text-[var(--text-muted)] text-center'>Months of building</p>
-            </div>
-          </SpotlightCard>
-          <SpotlightCard className='h-48 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] flex justify-center items-center' spotlightColor="rgba(143, 138, 255, .5)">
-            <div className='flex flex-col items-center gap-3'>
-              <h2 className='text-[var(--accent)]!'>100%</h2>
-              <p className='text-[0.9rem] font-bold text-[var(--text-muted)] text-center'>Self-Motivated</p>
-            </div>
-          </SpotlightCard>
-          <SpotlightCard className='h-48 border border-transparent transition-all duration-300 ease-in-out hover:border-[var(--accent-hover)] flex justify-center items-center' spotlightColor="rgba(143, 138, 255, .5)">
-            <div className='flex flex-col items-center gap-3'>
-              <Infinity height={55} width={55} className='text-[var(--accent)]' />
-              <p className='text-[0.9rem] font-bold text-[var(--text-muted)] text-center'>Drive to keep learning</p>
-            </div>
-          </SpotlightCard>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full lg:w-auto'>
+          {stats.map((stat, index) => (
+            <StatCard key={index} {...stat} />
+          ))}
         </div>
       </section>
 
