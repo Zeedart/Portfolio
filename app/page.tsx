@@ -1,13 +1,10 @@
 'use client';
-import DockComp from '@/components/comps/DockComp';
 import GlassyNav from '@/components/comps/GlassyNav';
 import BlinkingDot from '@/components/comps/BlinkingDot';
 import BorderGlow from '@/components/BorderGlow';
 import Link from 'next/link';
 import { CodeXmlIcon } from '@/components/ui/code-xml-icon';
 import dynamic from 'next/dynamic'
-import SpotlightCard from '@/components/SpotlightCard';
-import { Infinity } from 'lucide-react';
 import { MessageCircle } from 'lucide-react';
 import LogoLoopComp from '@/components/comps/LogoLoopComp';
 import ProfileCard from '@/components/ProfileCard';
@@ -16,14 +13,16 @@ import Card from '@/components/comps/Card';
 import TASKORA from '@/public/Taskora.png'
 import StackIcon from 'tech-stack-icons';
 import { useTheme } from '@/context/Theme';
-import Portfolio from '@/public/Portfolio.png';
 import Kafé from '@/public/Kafé.png';
 import SmartStudyDashboard from "@/public/iFOCUSFLOW.png";
 import StatCard from '@/components/comps/StatCard';
-import {RocketIcon} from '@/components/ui/rocket-icon';
-import  {InfinityIcon}  from "@phosphor-icons/react";
-import {BrowserIcon } from "@phosphor-icons/react";
+import { RocketIcon } from '@/components/ui/rocket-icon';
+import { BrowserIcon } from "@phosphor-icons/react";
 import { MonitorSmartphoneIcon } from '@/components/ui/monitor-smartphone-icon';
+import { Reveal } from "@/motion/reveal";
+import { motion } from "motion/react";
+import {AnimatedText} from "@/motion/animated-text";
+import {AnimatedWord} from "@/motion/animated-word";
 
 const DotField = dynamic(() => import('@/components/DotField'), { ssr: false })
 
@@ -38,7 +37,7 @@ const stats: StatCardProps[] = [
   {
     value: "3+",
     label: "Full stack projects deployed",
-    icon: <RocketIcon/>,
+    icon: <RocketIcon />,
   },
   {
     value: "React & Next.js",
@@ -48,7 +47,7 @@ const stats: StatCardProps[] = [
   {
     value: "Responsive",
     label: "Mobile-First Development",
-    icon: <MonitorSmartphoneIcon/>,
+    icon: <MonitorSmartphoneIcon />,
   },
   {
     value: "4+",
@@ -90,6 +89,32 @@ export default function Home() {
     }
   ]
 
+  const letterVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+      filter: "blur(8px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+    },
+  };
+
+  const wordVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.07,
+      },
+    },
+  };
+
+  const description =
+  "Frontend developer building fast, beautiful, and purposeful web experiences with React, Next.js, and TypeScript.";
+
+
   const { theme } = useTheme();
 
   return (
@@ -128,16 +153,85 @@ export default function Home() {
             </div>
 
             <h1 className="overflow-hidden">
-              Yazeed <br />
-              <span className="text-[var(--accent)]">
-                Alkalmi.
-              </span>
+              <motion.span
+                className="inline-block"
+                variants={wordVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {"Yazeed".split("").map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    variants={letterVariants}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="inline-block"
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </motion.span>
+
+              <br />
+
+              <motion.span
+                className="inline-block text-[var(--accent)]"
+                variants={wordVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{ delayChildren: 0.5 }}
+              >
+                {"Alkalmi.".split("").map((letter, i) => (
+                  <motion.span
+                    key={i}
+                    variants={letterVariants}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="inline-block"
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </motion.span>
             </h1>
 
-            <p className="text-[var(--text)] text-[1.05rem] max-w-md">
-              Frontend developer building fast, beautiful, and purposeful web
-              experiences with React, Next.js, and TypeScript.
-            </p>
+            <motion.p
+      className="text-[var(--text)] text-[1.05rem] max-w-md"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            delayChildren: 0.5,
+            staggerChildren: 0.035,
+          },
+        },
+      }}
+    >
+      {description.split(" ").map((word, index) => (
+        <motion.span
+          key={index}
+          className="inline-block mr-[0.25em]"
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 10,
+              filter: "blur(4px)",
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              filter: "blur(0px)",
+            },
+          }}
+          transition={{
+            duration: 0.45,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.p>
 
             <div className="flex flex-wrap gap-4">
 
@@ -207,23 +301,43 @@ export default function Home() {
       <section id="about" className='w-full px-6 md:px-16 py-20 flex flex-col lg:flex-row gap-12 items-start lg:items-center justify-around'>
 
         <div className='w-full lg:w-[45%] flex flex-col gap-6'>
-          <div className='flex gap-4 items-center'>
-            <span className='text-[var(--accent)] text-[0.9rem] font-semibold tracking-widest'>ABOUT ME</span>
-            <div className='h-[.1px] w-16 bg-[var(--accent)]'></div>
-          </div>
-          <h2>Who I am</h2>
-          <div className='flex flex-col gap-5'>
-            <p className='text-[1.05rem] text-[var(--text-muted)] font-semibold'>
-              I am a <span className='text-[var(--text)]'>frontend developer</span> who graduated in 2025 and immediately got to work, building applications that solve real problems.
-            </p>
-            <p className='text-[1.05rem] text-[var(--text-muted)] font-semibold'>
-              My biggest project, <span className='text-[var(--text)]'>Taskora</span>, is a team task manager with real-time features, Kanban boards and workspace management. Built with Next.js and Supabase.
-            </p>
-            <p className='text-[1.05rem] text-[var(--text-muted)] font-semibold'>
-              I'm driven by a love for <span className='text-[var(--text)]'>clean design, great UX, and writing code that actually works.</span> Looking for my first role where I can grow fast and contribute from day one.
-            </p>
-          </div>
+          <Reveal delay={0.2} y={24}>
+            <div className='flex gap-4 items-center'>
+              <span className='text-[var(--accent)] text-[0.9rem] font-semibold tracking-widest'>ABOUT ME</span>
+              <div className='h-[.1px] w-16 bg-[var(--accent)]'></div>
+            </div>
+            <h2>Who I am</h2>
+          </Reveal>
+
+
+          <div className="flex flex-col gap-5">
+  <AnimatedText
+    as="p"
+    className="text-[1.05rem] text-[var(--text-muted)] font-semibold"
+  >
+    I am a <span className="text-[var(--text)]">frontend developer</span> who graduated in 2025 and immediately got to work, building applications that solve real problems.
+  </AnimatedText>
+
+  <AnimatedText
+    as="p"
+    delay={0.15}
+    className="text-[1.05rem] text-[var(--text-muted)] font-semibold"
+  >
+    My biggest project, <span className="text-[var(--text)]">Taskora</span>, is a team task manager with real-time features, Kanban boards and workspace management. Built with Next.js and Supabase.
+  </AnimatedText>
+
+  <AnimatedText
+    as="p"
+    delay={0.3}
+    className="text-[1.05rem] text-[var(--text-muted)] font-semibold"
+  >
+    I'm driven by a love for <span className="text-[var(--text)]">clean design, great UX, and writing code that actually works.</span> Looking for my first role where I can grow fast and contribute from day one.
+  </AnimatedText>
+</div>
         </div>
+
+
+        
         {/* Stats */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full lg:w-auto'>
           {stats.map((stat, index) => (
@@ -235,11 +349,13 @@ export default function Home() {
       <div className='bg-[var(--bg-card)] w-[92%] my-10 mx-auto h-[.9px]' />
 
       <section id='projects' className='w-full px-6 md:px-16 py-10'>
-        <div className='flex gap-4 items-center mb-4'>
-          <span className='text-[var(--accent)] text-[0.9rem] font-semibold tracking-widest'>WORK</span>
-          <div className='h-[.1px] w-16 bg-[var(--accent)]'></div>
-        </div>
-        <h2 className='mb-12'>Projects I've built</h2>
+        <Reveal delay={0.2} y={24}>
+          <div className='flex gap-4 items-center mb-4'>
+            <span className='text-[var(--accent)] text-[0.9rem] font-semibold tracking-widest'>WORK</span>
+            <div className='h-[.1px] w-16 bg-[var(--accent)]'></div>
+          </div>
+          <h2 className='mb-12'>Projects I've built</h2>
+        </Reveal>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {Projects.map(project => (
             <Card key={project.id} image={project.image} ProjectName={project.ProjectName} ProjectDescription={project.ProjectDescription} LiveUrl={project.LiveUrl} githubUrl={project.githubUrl} TechStack={project.TechStack} />
@@ -257,17 +373,19 @@ export default function Home() {
       <div className='bg-[var(--bg-card)] w-[92%] my-10 mx-auto h-[.9px]' />
 
       <section id="skills" className="w-full px-6 md:px-16 py-10">
-        <div className="flex gap-4 items-center mb-4">
-          <span className="text-[var(--accent)] text-[0.9rem] font-semibold tracking-widest">
-            STACK
-          </span>
+        <Reveal delay={0.2} y={24}>
+          <div className="flex gap-4 items-center mb-4">
+            <span className="text-[var(--accent)] text-[0.9rem] font-semibold tracking-widest">
+              STACK
+            </span>
 
-          <div className="h-[.1px] w-16 bg-[var(--accent)]"></div>
-        </div>
+            <div className="h-[.1px] w-16 bg-[var(--accent)]"></div>
+          </div>
 
-        <h2 className="mb-8 md:mb-12">
-          What I work with
-        </h2>
+          <h2 className="mb-8 md:mb-12">
+            What I work with
+          </h2>
+        </Reveal>
 
         <LogoLoopComp />
       </section>
